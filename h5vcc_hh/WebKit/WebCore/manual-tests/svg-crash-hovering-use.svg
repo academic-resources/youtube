@@ -1,15 +1,4 @@
-<?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg id="svg" viewBox="0 0 100 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<defs>
-    <rect id="rect" width="60" height="10"/>
-</defs>
-
-<text x="30" y="30" transform="scale(0.2 0.2)">Hover over the rectangle - it should not crash</text>
-<use id="use" x="20" y="10" xlink:href="#rect" />
-
-<script>
-<![CDATA[
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg" version="1.1" viewBox="0 0 100 30"><defs><rect id="rect" width="60" height="10"/></defs><text x="30" y="30" transform="scale(0.2 0.2)">Hover over the rectangle - it should not crash</text><use id="use" x="20" y="10" xlink:href="#rect"/><script><![CDATA[
     var svg = document.getElementById("svg");
     var use = document.getElementById("use");
 
@@ -25,6 +14,4 @@
 
     document.addEventListener("DOMNodeInserted", function() {}, true);
     removeUseElement();
-]]>
-</script>
-</svg>
+]]></script></svg>

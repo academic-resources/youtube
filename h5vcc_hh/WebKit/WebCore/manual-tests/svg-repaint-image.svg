@@ -1,9 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-        
-<script>
-<![CDATA[
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink"><script><![CDATA[
 var stateIndex = 0;
 var currentTarget = 0;
 
@@ -55,23 +50,4 @@ function animationStep() {
 }
 
 
-]]>
-</script>
-
-        <text id="A" x="0" y="32" fill="red" font-size="32" onclick="stateA()">|A|</text>
-        <text id="B" x="60" y="32" fill="blue" font-size="32" onclick="stateB()">B</text>
-        <text x="0" y="642" fill="black" font-size="32">Click B and then A above.</text>
-        <text x="0" y="674" fill="black" font-size="32">The animation should have no trails or clipping.</text>
-
-	<circle fill="pink" cx="300" cy="300" stroke="lightblue" stroke-width="40" r="300" />
-
-        <g>
-            <rect fill="yellow" stroke="#000000" stroke-width="2" x="60" y="60" width="170" height="170" />
-
-	        <image  id="targetGroup" x="60" y="60" width="170" height="170" xlink:href="resources/3dolph.gif"  />
-        </g>
-
-
-</svg>
-
-
+]]></script><text id="A" x="0" y="32" fill="red" font-size="32" onclick="stateA()">|A|</text><text id="B" x="60" y="32" fill="#00f" font-size="32" onclick="stateB()">B</text><text x="0" y="642" fill="#000" font-size="32">Click B and then A above.</text><text x="0" y="674" fill="#000" font-size="32">The animation should have no trails or clipping.</text><circle cx="300" cy="300" r="300" fill="pink" stroke="#add8e6" stroke-width="40"/><g><rect width="170" height="170" x="60" y="60" fill="#ff0" stroke="#000" stroke-width="2"/><image id="targetGroup" width="170" height="170" x="60" y="60" xlink:href="resources/3dolph.gif"/></g></svg>
