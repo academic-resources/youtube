@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JavaScriptCore_FYMP_vs", "JavaScriptCore\JavaScriptCore_FYMP_vs.vcxproj", "{3CDE0260-B1CE-A776-D0B1-DFA17BD2018D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WebCore_FYMP_vs", "WebCore\WebCore_FYMP_vs.vcxproj", "{0662C548-C52F-2369-8040-7F1E24E347DA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3CDE0260-B1CE-A776-D0B1-DFA17BD2018D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3CDE0260-B1CE-A776-D0B1-DFA17BD2018D}.Debug|Win32.Build.0 = Debug|Win32
+		{3CDE0260-B1CE-A776-D0B1-DFA17BD2018D}.Release|Win32.ActiveCfg = Release|Win32
+		{3CDE0260-B1CE-A776-D0B1-DFA17BD2018D}.Release|Win32.Build.0 = Release|Win32
+		{0662C548-C52F-2369-8040-7F1E24E347DA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0662C548-C52F-2369-8040-7F1E24E347DA}.Debug|Win32.Build.0 = Debug|Win32
+		{0662C548-C52F-2369-8040-7F1E24E347DA}.Release|Win32.ActiveCfg = Release|Win32
+		{0662C548-C52F-2369-8040-7F1E24E347DA}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
