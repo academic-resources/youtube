@@ -1,0 +1,15 @@
+{
+	"gke_cluster": {"GKE_SSD_SIZE_GB": "100", "GKE_MACHINE_TYPE": "n1-standard-8", "GKE_NUM_NODES": "25"},
+        "scenarios": [
+		{"cluster": {"VTGATE_COUNT": "3", "SHARDS": "0", "TABLETS_PER_SHARD": "2"}, "NUM_YCSB_RUNNERS": "4"},
+		{"cluster": {"VTGATE_COUNT": "3", "SHARDS": "0", "TABLETS_PER_SHARD": "3"}, "NUM_YCSB_RUNNERS": "4"},
+		{"cluster": {"VTGATE_COUNT": "4", "SHARDS": "0", "TABLETS_PER_SHARD": "4"}, "NUM_YCSB_RUNNERS": "4"},
+		{"cluster": {"VTGATE_COUNT": "5", "SHARDS": "0", "TABLETS_PER_SHARD": "5"}, "NUM_YCSB_RUNNERS": "4"},
+		{"cluster": {"VTGATE_COUNT": "6", "SHARDS": "0", "TABLETS_PER_SHARD": "6"}, "NUM_YCSB_RUNNERS": "4"},
+		{"cluster": {"VTGATE_COUNT": "7", "SHARDS": "0", "TABLETS_PER_SHARD": "7"}, "NUM_YCSB_RUNNERS": "4"},
+		{"cluster": {"VTGATE_COUNT": "8", "SHARDS": "0", "TABLETS_PER_SHARD": "8"}, "NUM_YCSB_RUNNERS": "4"},
+		{"cluster": {"VTGATE_COUNT": "9", "SHARDS": "0", "TABLETS_PER_SHARD": "9"}, "NUM_YCSB_RUNNERS": "4"},
+		{"cluster": {"VTGATE_COUNT": "10", "SHARDS": "0", "TABLETS_PER_SHARD": "10"}, "NUM_YCSB_RUNNERS": "4"}
+	]
+}
+

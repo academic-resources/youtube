@@ -1,0 +1,28 @@
+{
+        "workloads": [
+		{"action": "load", "workload": "a", "recordcount": "1", "threads": "1", "createtable" : "True"},
+		{"action": "load", "workload": "a", "recordcount": "12000000", "threads": "50", "maxexecutiontime": "120"},
+		{"action": "load", "workload": "a", "recordcount": "1", "threads": "1", "createtable" : "True"},
+		{"action": "load", "workload": "a", "recordcount": "12000000", "threads": "100", "maxexecutiontime": "120"},
+		{"action": "load", "workload": "a", "recordcount": "1", "threads": "1", "createtable" : "True"},
+		{"action": "load", "workload": "a", "recordcount": "12000000", "threads": "150", "maxexecutiontime": "120"},
+		{"action": "load", "workload": "a", "recordcount": "1", "threads": "1", "createtable" : "True"},
+		{"action": "load", "workload": "a", "recordcount": "12000000", "threads": "200", "maxexecutiontime": "120"},
+		{"action": "load", "workload": "a", "recordcount": "1", "threads": "1", "createtable" : "True"},
+		{"action": "load", "workload": "a", "recordcount": "12000000", "threads": "250", "maxexecutiontime": "120"},
+		{"action": "load", "workload": "a", "recordcount": "1", "threads": "1", "createtable" : "True"},
+		{"action": "load", "workload": "a", "recordcount": "12000000", "threads": "300", "maxexecutiontime": "120"},
+		{"action": "load", "workload": "a", "recordcount": "1", "threads": "1", "createtable" : "True"},
+		{"action": "load", "workload": "a", "recordcount": "12000000", "threads": "400", "maxexecutiontime": "120"},
+		{"action": "load", "workload": "a", "recordcount": "1", "threads": "1", "createtable" : "True"},
+		{"action": "load", "workload": "a", "recordcount": "12000000", "threads": "500", "maxexecutiontime": "120"},
+		{"action": "load", "workload": "a", "recordcount": "1", "threads": "1", "createtable" : "True"},
+		{"action": "load", "workload": "a", "recordcount": "12000000", "threads": "600", "maxexecutiontime": "120"},
+		{"action": "load", "workload": "a", "recordcount": "1", "threads": "1", "createtable" : "True"},
+		{"action": "load", "workload": "a", "recordcount": "12000000", "threads": "700", "maxexecutiontime": "120"},
+		{"action": "load", "workload": "a", "recordcount": "1", "threads": "1", "createtable" : "True"},
+		{"action": "load", "workload": "a", "recordcount": "12000000", "threads": "800", "maxexecutiontime": "120"},
+		{"action": "load", "workload": "a", "recordcount": "1", "threads": "1", "createtable" : "True"},
+		{"action": "load", "workload": "a", "recordcount": "12000000", "threads": "900", "maxexecutiontime": "120"}
+        ]
+}
