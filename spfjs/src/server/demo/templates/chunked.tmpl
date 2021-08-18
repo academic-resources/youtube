@@ -1,0 +1,79 @@
+$# Copyright 2013 Google Inc. All rights reserved.
+$#
+$# Use of this source code is governed by The MIT License.
+$# See the LICENSE file for details.
+
+$def _stylesheet():
+  <!-- This style is inlined here for demo purposes. -->
+  <style name="chunked">
+    #chunked-actions p { float: left;
+                         width: 44%; height: 4em;
+                         margin: 1em; padding: 1em;
+                         border: 1px solid #eee; }
+    #chunked-actions label input { font-size: 100%; }
+    #chunked-output { clear: both;
+                      margin: 1em; padding: 1em;
+                      border: 1px solid #eee; }
+    #chunked-log { white-space: pre-wrap; }
+  </style>
+
+$def _attributes():
+  { "nav": { "class": "test" } }
+
+$def _javascript():
+  <script src="/static/app-chunked.js" name="chunked"></script>
+
+
+$var title: Chunked Test
+$var name: chunked
+$var stylesheet: $:_stylesheet()
+$var javascript: $:_javascript()
+$var attributes: $:_attributes()
+
+<div id="chunked" class="pane">
+  <h1>Chunked Transfer Tests</h1>
+
+  <div id="chunked-actions">
+
+    <p>
+      <strong>Configuration</strong>
+      <br>
+      <label>
+        Number of chunks:
+        <input id="chunks-input" type="number" min="1" max="5" step="1" name="chunks" value="3">
+      </label>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <label>
+        Delay between chunks:
+        <input id="delay-input" type="number" min="0" max="5" step="0.5" name="delay" value="0.5">sec
+      </label>
+    </p>
+
+    <p>
+      <strong>Valid Responses</strong>
+      <br>
+      <button onclick="app.chunked.requestSingle();">Request Single</button>
+      <button onclick="app.chunked.requestMultipart();">Request Multipart</button>
+    </p>
+
+    <p>
+      <strong>Malformed Responses (No Error)</strong>
+      <br>
+      <button onclick="app.chunked.requestMultipart({no_multipart_header: true});">Request Multipart: No Header</button>
+      <button onclick="app.chunked.requestMultipart({no_final_delimiter: true});">Request Multipart: No Final Delimiter</button>
+    </p>
+
+    <p>
+      <strong>Invalid Responses (Error)</strong>
+      <br>
+      <button onclick="app.chunked.requestSingle({add_parse_error: true});">Request Single: Parse Error</button>
+      <button onclick="app.chunked.requestMultipart({add_parse_error: true});">Request Multipart: Parse Error</button>
+    </p>
+
+  </div>
+
+  <div id="chunked-output">
+    <strong>Log</strong>
+    <pre id="chunked-log"></pre>
+  </div>
+</div>

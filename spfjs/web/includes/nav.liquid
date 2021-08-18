@@ -1,0 +1,9 @@
+{% assign sitenav__list = site.data.sitenav %}
+<ul>
+  {% for sitenav__item in sitenav__list %}
+    <li {% if sitenav__item.url == "/" %}class="index"{% endif %}>
+      <a href="{{ site.baseurl }}{{ sitenav__item.page.url | replace:'index.html','' }}">{{ sitenav__item.page.title }}</a>
+    </li>
+  {% endfor %}
+  <li><a href="https://github.com/youtube/spfjs">GitHub</a></li>
+</ul>

@@ -1,0 +1,21 @@
+/*
+Copyright 2013 Google Inc. All rights reserved.
+
+Use of this source code is governed by The MIT License.
+See the LICENSE file for details.
+*/
+
+/**
+ * Stylesheet for "Demo Pages" area of the SPF demo app.
+ *
+ * @author nicksay@google.com (Alex Nicksay
+ */
+
+
+/* This file only exists to demonstrate external CSS being loaded. */
+#demo-text-external-no {
+  display: none;
+}
+#demo-text-external-yes {
+  display: inline !important;
+}

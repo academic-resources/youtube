@@ -1,0 +1,12 @@
+# Build output and files
+/build
+/build.ninja
+/npm-debug.log
+/web/_site
+/web/_source
+
+# External libraries
+/bower_components
+/node_modules
+/vendor
+/web/assets/vendor

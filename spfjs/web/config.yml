@@ -1,0 +1,40 @@
+# Copyright 2014 Google Inc. All rights reserved.
+#
+# Use of this source code is governed by The MIT License.
+# See the LICENSE file for details.
+
+url: http://youtube.github.io
+baseurl: /spfjs
+
+title: SPF
+description: A lightweight JS framework for fast navigation and page updates from YouTube
+
+release: SPF 24 (v2.4.0)
+version: 2.4.0
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - Rakefile
+  - _graphics
+
+permalink: pretty
+
+markdown: redcarpet
+redcarpet:
+    extensions: [tables, with_toc_data]
+
+analytics:
+  id: UA-52278317-1
+
+defaults:
+  -
+    scope:
+      path: "" # An empty path means all files.
+    values:
+      layout: default
+  -
+    scope:
+      path: documentation
+    values:
+      layout: documentation

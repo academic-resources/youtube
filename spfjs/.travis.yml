@@ -1,0 +1,10 @@
+language: node_js
+  - 0.10
+install:
+  - npm install
+before_script:
+  - npm run build
+  - npm run lint
+script:
+  - npm test
+sudo: false

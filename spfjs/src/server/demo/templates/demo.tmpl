@@ -1,0 +1,307 @@
+$def with (page_num)
+
+$# Copyright 2012 Google Inc. All rights reserved.
+$#
+$# Use of this source code is governed by The MIT License.
+$# See the LICENSE file for details.
+
+
+$def _stylesheet():
+  <!-- This style is inlined here for demo purposes. -->
+  <style name="demo-inline">
+    #demo-text-internal-no {
+      display: none;
+    }
+    #demo-text-internal-yes {
+      display: inline !important;
+    }
+
+    .demo .yes {
+      color: #090;
+    }
+    .demo .no {
+      color: #C00;
+    }
+    .demo code em {
+      background: #DDD;
+    }
+    .demo table {
+      width: 98%;
+      border-collapse: collapse;
+    }
+    .demo thead,
+    .demo tbody {
+      border: 1px solid #BBB;
+      text-align: center;
+    }
+    .demo tr th {
+      padding: 1em 0.5em;
+    }
+    .demo tr:first-child td {
+      padding: 1em 0.5em 0.5em;
+      border-bottom: 1px solid #EEE;
+    }
+    .demo tr:last-child td {
+      padding: 0.5em 0.5em 1em;
+    }
+    .demo td.yes {
+      background-color: #EFE;
+    }
+    .demo td.no {
+      background-color: #FEE;
+    }
+    #demo-target {
+      text-align: center;
+      margin: 50em 0 10em;  /* for testing scrolling */
+    }
+  </style>
+  <link rel="stylesheet" href="/static/app-demo.css" name="demo-external">
+
+$def _attributes():
+  { "nav": { "class": "demo$page_num" } }
+
+$var title: Demo Page $page_num
+$var name: demo
+$var stylesheet: $:_stylesheet()
+$var javascript:
+$var attributes: $:_attributes()
+
+<div id="demo" class="pane demo">
+  <h1>Demo Page $page_num</h1>
+  <!-- Demonstrate scripts in the middle of a content fragment -->
+  <script src="/static/app-demo.js" name="demo"></script>
+  <script>
+    app.log('demo $page_num: embedded javascript')
+    app.log('external js is loaded = ' + !!(window.app && app.demo && app.demo.loaded));
+  </script>
+
+  <p>
+    These pages demonstrate different types of SPF link and response handling.
+    Each type of link has multiple samples to easily test several navigations.
+  </p>
+
+  <p>
+    Inline CSS Loaded? <strong id="demo-text-internal-no" class="no">NO</strong><strong id="demo-text-internal-yes" class="yes" style="display: none">YES</strong>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    External CSS Loaded? <strong id="demo-text-external-no" class="no">NO</strong><strong id="demo-text-external-yes" class="yes" style="display: none">YES</strong>
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Transition?</th>
+        <th>URL update?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>regular link</td>
+        <td class="no">No</td>
+        <td class="yes">Yes</td>
+      </tr>
+      <tr>
+        <td><code>&lt;a href="<em> &hellip; </em>"&gt;</code></td>
+        <td colspan="2">
+          <a href="/demo/1">Demo 1</a>
+          <a href="/demo/2">Demo 2</a>
+          <a href="/demo/3">Demo 3</a>
+          <a href="/demo/4">Demo 4</a>
+          <a href="/demo/5">Demo 5</a>
+        </td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td><code>spf-link</code> link</td>
+        <td class="yes">Yes</td>
+        <td class="yes">Yes</td>
+      </tr>
+      <tr>
+        <td><code>&lt;a class="spf-link" href="<em> &hellip; </em>"&gt;</code></td>
+        <td colspan="2">
+          <a class="spf-link" href="/demo/1">Demo 1</a>
+          <a class="spf-link" href="/demo/2">Demo 2</a>
+          <a class="spf-link" href="/demo/3">Demo 3</a>
+          <a class="spf-link" href="/demo/4">Demo 4</a>
+          <a class="spf-link" href="/demo/5">Demo 5</a>
+        </td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td><code>spf-link</code> container</td>
+        <td class="yes">Yes</td>
+        <td class="yes">Yes</td>
+      </tr>
+      <tr>
+        <td><code>&lt;span class="spf-link"&gt;&lt;a href="<em> &hellip; </em>"&gt;</code></td>
+        <td colspan="2">
+          <span class="spf-link">
+            <a href="/demo/1">Demo 1</a>
+            <a href="/demo/2">Demo 2</a>
+            <a href="/demo/3">Demo 3</a>
+            <a href="/demo/4">Demo 4</a>
+            <a href="/demo/5">Demo 5</a>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td><code>spf-nolink</code> container</td>
+        <td class="no">No</td>
+        <td class="yes">Yes</td>
+      </tr>
+      <tr>
+        <td><code>&lt;span class="spf-nolink"&gt;&lt;a class="spf-link" href="<em> &hellip; </em>"&gt;</code></td>
+        <td colspan="2">
+          <span class="spf-nolink">
+            <a class="spf-link" href="/demo/1">Demo 1</a>
+            <a class="spf-link" href="/demo/2">Demo 2</a>
+            <a class="spf-link" href="/demo/3">Demo 3</a>
+            <a class="spf-link" href="/demo/4">Demo 4</a>
+            <a class="spf-link" href="/demo/5">Demo 5</a>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td><code>spf-link</code> element inside regular link</td>
+        <td class="no">No</td>
+        <td class="yes">Yes</td>
+      </tr>
+      <tr>
+        <td><code>&lt;a href="<em> &hellip; </em>"&gt;&lt;span class="spf-link"&gt;</code></td>
+        <td colspan="2">
+          <a href="/demo/1"><span class="spf-link">Demo 1</span></a>
+          <a href="/demo/2"><span class="spf-link">Demo 2</span></a>
+          <a href="/demo/3"><span class="spf-link">Demo 3</span></a>
+          <a href="/demo/4"><span class="spf-link">Demo 4</span></a>
+          <a href="/demo/5"><span class="spf-link">Demo 5</span></a>
+        </td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td>missing <code>href</code> attribute</td>
+        <td class="no">No</td>
+        <td class="no">No</td>
+      </tr>
+      <tr>
+        <td><code>&lt;a class="spf-link"&gt;</code></td>
+        <td colspan="2">
+          <a class="spf-link">Demo 1 Missing</a>
+          <a class="spf-link">Demo 2 Missing</a>
+          <a class="spf-link">Demo 3 Missing</a>
+          <a class="spf-link">Demo 4 Missing</a>
+          <a class="spf-link">Demo 5 Missing</a>
+        </td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td>empty <code>href</code> attribute</td>
+        <td class="yes">Yes</td>
+        <td class="no">No</td>
+      </tr>
+      <tr>
+        <td><code>&lt;a class="spf-link" href=""&gt;</code></td>
+        <td colspan="2">
+          <a class="spf-link" href="">Demo 1 Empty</a>
+          <a class="spf-link" href="">Demo 2 Empty</a>
+          <a class="spf-link" href="">Demo 3 Empty</a>
+          <a class="spf-link" href="">Demo 4 Empty</a>
+          <a class="spf-link" href="">Demo 5 Empty</a>
+        </td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td><code>href</code> attribute with path and hash</td>
+        <td class="yes">Yes</td>
+        <td class="yes">Yes</td>
+      </tr>
+      <tr>
+        <td><code>&lt;a class="spf-link" href="<em> &hellip; </em>#<em> &hellip; </em>"&gt;</code></td>
+        <td colspan="2">
+          <a class="spf-link" href="/demo/1#demo-target">Demo 1 Target</a>
+          <a class="spf-link" href="/demo/2#demo-target">Demo 2 Target</a>
+          <a class="spf-link" href="/demo/3#demo-target">Demo 3 Target</a>
+          <a class="spf-link" href="/demo/4#demo-target">Demo 4 Target</a>
+          <a class="spf-link" href="/demo/5#demo-target">Demo 5 Target</a>
+        </td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td><code>href</code> attribute with only hash</td>
+        <td class="no">No</td>
+        <td class="no">No</td>
+      </tr>
+      <tr>
+        <td><code>&lt;a class="spf-link" href="#<em> &hellip; </em>"&gt;</code></td>
+        <td colspan="2">
+          <a class="spf-link" href="#demo-target">Demo Target</a>
+        </td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td><code>spf.navigate</code> JS API</td>
+        <td class="yes">Yes</td>
+        <td class="yes">Yes</td>
+      </tr>
+      <tr>
+        <td><code>&lt;button onclick="spf.navigate(<em> &hellip; </em>)"&gt;</code></td>
+        <td colspan="2">
+          <button onclick="spf.navigate('/demo/1')">Demo 1</button>
+          <button onclick="spf.navigate('/demo/2')">Demo 2</button>
+          <button onclick="spf.navigate('/demo/3')">Demo 3</button>
+          <button onclick="spf.navigate('/demo/4')">Demo 4</button>
+          <button onclick="spf.navigate('/demo/5')">Demo 5</button>
+          <button onclick="spf.navigate('/demo/6')">Demo 6</button>
+        </td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td><code>spf.load</code> JS API</td>
+        <td class="no">No</td>
+        <td class="no">No</td>
+      </tr>
+      <tr>
+        <td><code>&lt;button onclick="spf.load(<em> &hellip; </em>)"&gt;</code></td>
+        <td colspan="2">
+          <button onclick="spf.load('/demo/1')">Demo 1</button>
+          <button onclick="spf.load('/demo/2')">Demo 2</button>
+          <button onclick="spf.load('/demo/3')">Demo 3</button>
+          <button onclick="spf.load('/demo/4')">Demo 4</button>
+          <button onclick="spf.load('/demo/5')">Demo 5</button>
+          <button onclick="spf.load('/demo/6')">Demo 6</button>
+        </td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td>non-200 responses</td>
+        <td class="yes">Yes</td>
+        <td class="yes">Yes</td>
+      </tr>
+      <tr>
+        <td><code>&lt;a class="spf-link" href="<em> &hellip; </em>"&gt;</code></td>
+        <td colspan="2">
+          404 Not Found: <a class="spf-link" href="/missing">Missing</a>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          303 See Other: <a class="spf-link" href="/other/foo">Other Foo</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p id="demo-target">
+    This is a target for testing scrolling support.  &nbsp;&nbsp;  <a href="#">Top</a>
+  </p>
+
+</div>

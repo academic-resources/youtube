@@ -1,0 +1,98 @@
+---
+layout: base
+---
+
+<main class="clear">
+
+  {% assign page__url = page.url | replace:'index.html','' %}
+  {% assign sitenav_item = site.data.sitenav_index[page__url] %}
+
+  <nav class="toc g-wide--1 g-medium--1">
+    {% include toc.liquid top="/documentation/" title=true %}
+
+    {% if page.toc != "" and page.toc != nil %}
+      <div class="pagetoc">
+        <p class="toc__title">
+          <a href="{{ site.baseurl }}{{ page__url }}">{{ page.title }}</a>
+        </p>
+        {{ page.toc }}
+      </div>
+    {% endif %}
+  </nav>
+
+  {% if page.index %}
+
+    <section class="guides-section g-wide--3 g-wide--last g-medium--2 g-medium--last">
+      <header class="container">
+        <h2 class="xxlarge">{{ page.title }}</h2>
+        {% if page.description %}
+          <p>
+            {{ page.description }}
+          </p>
+        {% endif %}
+      </header>
+      {% assign guide__list = sitenav_item.children %}
+      <ol class="guides-list container">
+        {% for guide__item in guide__list %}
+          <li class="guides-list__item g-wide--half theme--spf">
+            <div class="primary-content">
+              <h3 class="xlarge"><a href="{{ site.baseurl }}{{ guide__item.page.url | replace:'index.html','' }}">{{ guide__item.page.title }}</a></h3>
+               {% if guide__item.page.description %}
+                <p>{{ guide__item.page.description }}</p>
+              {% endif %}
+            </div>
+            <div class="secondary-content">
+              {% if guide__item.children %}
+                <span class="icon-circle themed--background"><i class="icon icon-lessons"></i></span>
+                <ol class="list-links list-links--secondary">
+                  {% for guide__subitem in guide__item.children %}
+                    <li>
+                      <a href="{{ site.baseurl }}{{ guide__subitem.page.url | replace:'index.html','' }}">{{ guide__subitem.page.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ol>
+              {% endif %}
+            </div>
+          </li>
+        {% endfor %}
+      </ol>
+    </section>
+    <article class="g-wide--3 g-wide--push-1 g-wide--last g-medium--2 g-medium--push-1 g-medium--last">
+      {% include nextprev.liquid top="/documentation/" path=sitenav_item.url %}
+    </article>
+
+  {% else %}
+
+    <article class="g-wide--3 g-wide--last g-medium--2 g-medium--last">
+      <header class="page-header container">
+        <h2 class="xxlarge text-divider">{{ page.title }}</h2>
+        {% if page.description %}
+          <p class="page-header__excerpt g-wide--push-1 g-wide--pull-1">
+            {{ page.description }}
+          </p>
+        {% endif %}
+      </header>
+      <div class="container">
+        {{ content }}
+      </div>
+      {% include nextprev.liquid top="/documentation/" path=sitenav_item.url %}
+    </article>
+
+  {% endif %}
+
+
+  <section class="feedback">
+    <footer class="container"><div class="container">
+      <p>
+        If you have feedback, comments, or questions about SPF, please send them
+        to <a href="mailto:spfjs@googlegroups.com">spfjs@googlegroups.com</a>.
+        If you have bugs or feature requests, please file them on
+        <a href="https://github.com/youtube/spfjs/issues">GitHub</a>. Join our
+        <a href="https://groups.google.com/group/spfjs">mailing list</a> and
+        follow <a href="https://twitter.com/spfjs">@spfjs</a> on Twitter for
+        updates.
+      </p>
+    </div></footer>
+  </section>
+
+</main>

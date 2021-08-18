@@ -1,0 +1,29 @@
+{
+  "name": "spf",
+  "description": "A lightweight JS framework for fast navigation and page updates from YouTube",
+  "main": "dist/spf.js",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/youtube/spfjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/youtube/spfjs.git"
+  },
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules"
+  ],
+  "devDependencies": {
+    "closure-compiler": "http://dl.google.com/closure-compiler/compiler-20141215.zip",
+    "jasmine-core": "jasmine#~2.3.4",
+    "octicons": "~2.1.2",
+    "spf": "2.1.1",
+    "web-starter-kit": "~0.4.0",
+    "webpy": "https://github.com/webpy/webpy/archive/73f1119649ffe54ba26ddaf6a612aaf1dab79b7f.zip"
+  }
+}

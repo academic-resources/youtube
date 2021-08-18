@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" class="spf-link no-js">
+<head>
+{% include meta.liquid %}
+<!-- begin spf head -->
+{% include styles.liquid %}
+<!-- end spf head -->
+</head>
+<body id="body" class="{{ page.original_layout }}">
+
+<header id="app-bar" class="app-bar promote-layer">
+  <div class="app-bar-container">
+    <button id="menu" class="menu" title="Menu"></button>
+    <h1 class="logo"><a href="{{ site.baseurl }}/">SPF</a></h1>
+    <section class="app-bar-actions">
+      <a href="#"><i class="icon octicon octicon-chevron-up"></i> Top</a>
+    </section>
+  </div>
+</header>
+
+<div class="navdrawer">
+  <nav id="nav" class="navdrawer-container promote-layer">
+    <h4>Navigation</h4>
+    {% include nav.liquid %}
+  </nav>
+</div>
+
+<div id="content">
+<!-- begin spf body: content -->
+{{ content }}
+<!-- end spf body: content -->
+</div>
+
+<footer>
+  <div class="container">
+    <p class="small">
+      &copy; 2014 Google.
+      Code licensed under <a href="https://github.com/youtube/spfjs/blob/master/LICENSE">MIT</a>.
+      Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+    </p>
+  </div>
+</footer>
+
+<div id="progress"><dt></dt><dd></dd></div>
+
+<!-- begin spf foot -->
+{% include scripts.liquid %}
+{% include analytics.liquid %}
+<!-- end spf foot -->
+</body>
+</html>

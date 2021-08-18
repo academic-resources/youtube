@@ -1,0 +1,162 @@
+/*
+Copyright 2012 Google Inc. All rights reserved.
+
+Use of this source code is governed by The MIT License.
+See the LICENSE file for details.
+*/
+
+/**
+ * Stylesheet for the SPF demo app.
+ *
+ * @author nicksay@google.com (Alex Nicksay
+ */
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  line-height: 1.4;
+  min-width: 45em;
+  background: #EEE;
+}
+#masthead {
+  font-size: 1.25em;
+  height: 1.2em;
+  line-height: 1.2;
+  padding: .4em 1.2em;
+  background: #FFF;
+  border-bottom: 1px solid #444;
+}
+#masthead strong {
+  font-size: 1.2em;
+  font-weight: normal;
+}
+#masthead .info {
+  float: right;
+  line-height: 2em;
+  font-size: .6em;
+  color: #333;
+}
+#app-status {
+  color: #F00;
+  font-weight: bold;
+}
+#app-status.enabled {
+  color: #19B319;
+}
+#nav {
+  padding: 0 1em;
+  background: #FFF;
+}
+#nav ul, li {
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+}
+#nav a {
+  display: inline-block;
+  padding: .3em 0.5em;
+  color: #000;
+  text-decoration: none;
+  -webkit-transition: background 300ms linear;
+  transition: background 300ms linear;
+}
+#nav a:hover {
+  text-decoration: underline;
+}
+#nav.home .nav-home a,
+#nav.spec .nav-spec a,
+#nav.demo1 .nav-demo1 a,
+#nav.demo2 .nav-demo2 a,
+#nav.demo3 .nav-demo3 a,
+#nav.demo4 .nav-demo4 a,
+#nav.demo5 .nav-demo5 a {
+  background: #EEE;
+}
+#content {
+  height: 100%;
+  position: relative;
+}
+#content .pane {
+  position: absolute;
+  top: 2em;
+  left: 5%;
+  width: 80%;
+  padding: 0 5%;
+  overflow: hidden;
+  background: #FFF;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+  transform: translateZ(0);
+}
+#footer {
+  border-top: 1px solid #EEE;
+  font-size: .8em;
+  color: #CCC;
+  padding: .2em .6em;
+}
+
+.spf-animate {
+  position: relative;
+}
+.spf-animate .spf-animate-old,
+.spf-animate .spf-animate-new {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: -webkit-transform 400ms ease, opacity 200ms linear;
+  transition: transform 400ms ease, opacity 200ms linear;
+  will-change: transform, opacity;
+}
+/* Transitions fade-out old and fade-in new */
+.spf-animate-start .spf-animate-old,
+.spf-animate-end   .spf-animate-new {
+  opacity: 1;
+  -webkit-transition-delay: 200ms;
+  transition-delay: 200ms;
+}
+.spf-animate-start .spf-animate-new,
+.spf-animate-end   .spf-animate-old {
+  opacity: 0;
+}
+/* By default, no movement, just fade */
+.spf-animate-start .spf-animate-old,
+.spf-animate-end   .spf-animate-new {
+  -webkit-transform: translate(0%, 0%);
+  transform: translate(0%, 0%);
+}
+/* Home/Spec -> Demo, slide in from right */
+.spf-animate-from-home.spf-animate-to-demo.spf-animate-start .spf-animate-new,
+.spf-animate-from-spec.spf-animate-to-demo.spf-animate-start .spf-animate-new {
+  -webkit-transform: translate(150%, 0%);
+  transform: translate(150%, 0%);
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+}
+.spf-animate-from-home.spf-animate-to-demo.spf-animate-end .spf-animate-old,
+.spf-animate-from-spec.spf-animate-to-demo.spf-animate-end .spf-animate-old {
+  -webkit-transform: translate(-150%, 0%);
+  transform: translate(-150%, 0%);
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+}
+/* Demo -> Home/Spec, slide in from left */
+.spf-animate-from-demo.spf-animate-to-home.spf-animate-start .spf-animate-new,
+.spf-animate-from-demo.spf-animate-to-spec.spf-animate-start .spf-animate-new {
+  -webkit-transform: translate(-150%, 0%);
+  transform: translate(-150%, 0%);
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+}
+.spf-animate-from-demo.spf-animate-to-home.spf-animate-end .spf-animate-old,
+.spf-animate-from-demo.spf-animate-to-spec.spf-animate-end .spf-animate-old {
+  -webkit-transform: translate(150%, 0%);
+  transform: translate(150%, 0%);
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+}

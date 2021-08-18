@@ -1,0 +1,35 @@
+# editorconfig.org
+# Consistent coding style across different editors.
+
+# Top-most file
+root = true
+
+# Global styles:
+#   - indent 2 spaces
+#   - add final new line
+#   - trim trailing whitespace
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Markdown and Mustache (when rendering Markdown):
+#   - indents must be 4 spaces
+#   - trailing whitespace is significant
+[*.{md,mustache}]
+indent_size = 4
+trim_trailing_whitespace = false
+
+# Makefile:
+#   - indents must be 1 tab
+[Makefile]
+indent_size = tab
+indent_style = tab
+
+# Python
+#   - indents must be 4 spaces
+[*.py]
+indent_size = 4

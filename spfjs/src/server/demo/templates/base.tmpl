@@ -1,0 +1,50 @@
+$def with (content)
+<!doctype HTML>
+<!--
+Copyright 2012 Google Inc. All rights reserved.
+
+Use of this source code is governed by The MIT License.
+See the LICENSE file for details.
+-->
+<html>
+<head>
+  <title>$content.title</title>
+  <link rel="stylesheet" href="/static/app.css" name="app">
+  $:content.stylesheet
+</head>
+<body data-spf-name="$content.name">
+  <div id="masthead">
+    <strong>S</strong>tructured <strong>P</strong>age <strong>F</strong>ragments
+    <span class="info">
+      Status: <span id="app-status">Disabled</span>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      Last refresh: <span id="app-timer">0</span>s ago
+    </span>
+  </div>
+  <div id="nav">
+    <!-- pages for testing navigation -->
+    <ul style="float:right">
+      <li class="nav-demo1"><a class="spf-link" href="/demo/1">Demo 1</a></li>
+      <li class="nav-demo2"><a class="spf-link" href="/demo/2">Demo 2</a></li>
+      <li class="nav-demo3"><a class="spf-link" href="/demo/3">Demo 3</a></li>
+      <li class="nav-demo4"><a class="spf-link" href="/demo/4">Demo 4</a></li>
+      <li class="nav-demo5"><a class="spf-link" href="/demo/5">Demo 5</a></li>
+    </ul>
+    <!-- pages with real content -->
+    <ul>
+      <li class="nav-home"><a class="spf-link" href="/">Overview</a></li>
+      <li class="nav-spec"><a class="spf-link" href="/spec">Spec</a></li>
+    </ul>
+  </div>
+  <div id="content" class="spf-animate">
+    $:content
+  </div>
+  <!-- include uncompiled files for development instead of spf.js -->
+  <script src="/static/dev/manifest.js"></script>
+  <script src="/static/app.js" name="app"></script>
+  <script>
+    app.init();
+  </script>
+  $:content.javascript
+</body>
+</html>
